@@ -8,7 +8,7 @@ export const Jupiter = ({ handlePlanetClick }: PlanetsProps) => {
   const jupiterRef = useRef<THREE.Mesh>(null!);
 
   const [colorMap] = useLoader(TextureLoader, [JupiterMap.src]);
-  
+
   const semiMajorAxis = 230;
   const orbitalPeriod = 220;
 
@@ -28,7 +28,7 @@ export const Jupiter = ({ handlePlanetClick }: PlanetsProps) => {
   return (
     <mesh
       ref={jupiterRef}
-      //   onClick={() => handlePlanetClick("jupiter")}
+      onClick={() => handlePlanetClick("jupiter")}
       position={[300, 0, 0]} // posição de Júpiter
     >
       <sphereGeometry args={[69.911, 32 * 2, 32 * 2]} />{" "}

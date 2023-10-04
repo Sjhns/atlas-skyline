@@ -40,7 +40,7 @@ export const Venus = ({ handlePlanetClick }: PlanetsProps) => {
     <>
       <mesh
         ref={venusRef}
-        // onClick={() => handlePlanetClick("venus")}
+        onClick={() => handlePlanetClick("venus")}
         position={[40, 0, 0]} // posição de Vênus
       >
         <sphereGeometry args={[6.051, 32 * 2, 32 * 2]} />{" "}

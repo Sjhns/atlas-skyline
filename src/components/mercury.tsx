@@ -29,7 +29,7 @@ export const Mercury = ({ handlePlanetClick }: PlanetsProps) => {
     <mesh
       
       ref={mercuryRef}
-      //   onClick={() => handlePlanetClick("mercury")}
+        onClick={() => handlePlanetClick("mercury")}
       position={[20, 0, 0]} // posição de Mercúrio
     >
       <sphereGeometry args={[2.439, 32 * 2, 32 * 2]}  />{" "}

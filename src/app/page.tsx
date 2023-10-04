@@ -16,9 +16,28 @@ import * as THREE from "three";
 import SceneBackground from "@/texture/background/8k_stars_milky_way_dark2.jpg";
 
 export default function Home() {
-  const [about, setAbout] = useState<"earth" | "mars" | "moon">();
+  const [about, setAbout] = useState<
+    | "earth"
+    | "mars"
+    | "moon"
+    | "mercury"
+    | "venus"
+    | "jupiter"
+    | "uranus"
+    | "saturn"
+  >();
 
-  const handlePlanetClick = (planetName: "earth" | "mars" | "moon") => {
+  const handlePlanetClick = (
+    planetName:
+      | "earth"
+      | "mars"
+      | "moon"
+      | "mercury"
+      | "venus"
+      | "jupiter"
+      | "uranus"
+      | "saturn"
+  ) => {
     setAbout(planetName);
   };
 
@@ -26,6 +45,7 @@ export default function Home() {
 
   return (
     <>
+      {about && <PlanetInfoModal planetName={about} />}
       <Canvas
         camera={{
           position: position,
@@ -44,11 +64,11 @@ export default function Home() {
         {/* <pointLight color="#f6f3ea" position={[0, 0, 0]} intensity={100} /> */}
         <Sun />
         <Mercury handlePlanetClick={handlePlanetClick} />
-         <Venus handlePlanetClick={handlePlanetClick} />
-        <Earth handlePlanetClick={handlePlanetClick} /> 
+        <Venus handlePlanetClick={handlePlanetClick} />
+        <Earth handlePlanetClick={handlePlanetClick} />
         <Mars handlePlanetClick={handlePlanetClick} />
         <Jupiter handlePlanetClick={handlePlanetClick} />
-        <Uranus handlePlanetClick={handlePlanetClick} /> 
+        <Uranus handlePlanetClick={handlePlanetClick} />
       </Canvas>
     </>
   );
@@ -84,20 +104,29 @@ function PlanetInfo({ planetName, description }: PlanetInfoProps) {
 }
 
 type PlanetInfoModalProps = {
-  planetName: "earth" | "mars" | "moon";
+  planetName:
+    | "earth"
+    | "mars"
+    | "moon"
+    | "mercury"
+    | "venus"
+    | "jupiter"
+    | "uranus"
+    | "saturn";
 };
 
 function PlanetInfoModal({ planetName }: PlanetInfoModalProps) {
-  // Cria a referência com o tipo HTMLDivElement
-
-  // ----------------------
-
-  // Aqui você pode definir descrições para cada planeta
   const planetDescriptions = {
     earth:
       "A Terra é o terceiro planeta do Sistema Solar e o único conhecido por abrigar vida.",
     mars: 'Marte é o quarto planeta do Sistema Solar e é conhecido como o "Planeta Vermelho".',
     moon: "A Lua é o satélite natural da Terra e é o objeto mais próximo do nosso planeta.",
+    mercury:
+      "Mercúrio é o menor planeta do Sistema Solar e o mais próximo do Sol.",
+    venus: "Vênus é o segundo planeta do Sistema Solar.",
+    jupiter: "Júpiter é o maior planeta do Sistema Solar.",
+    uranus: "Urano é o sétimo planeta do Sistema Solar.",
+    saturn: "Saturno é o sexto planeta do Sistema Solar.",  
   };
 
   return (
@@ -108,7 +137,6 @@ function PlanetInfoModal({ planetName }: PlanetInfoModalProps) {
           description={planetDescriptions[planetName]}
         />
       </div>
-      {/* Adicione mais informações detalhadas sobre o planeta, se desejar */}
     </div>
   );
 }

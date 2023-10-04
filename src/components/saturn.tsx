@@ -34,7 +34,7 @@ export const Saturn = ({ handlePlanetClick }: PlanetsProps) => {
     <>
       <mesh
         ref={saturnRef}
-        // onClick={() => handlePlanetClick("saturn")}
+        onClick={() => handlePlanetClick("saturn")}
         position={[570, 0, 0]} // posição de Saturno
       >
         <sphereGeometry args={[58.232, 32 * 2, 32 * 2]} />{" "}
