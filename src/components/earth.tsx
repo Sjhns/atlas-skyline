@@ -75,7 +75,7 @@ export const Earth = ({handlePlanetClick}: EarthProps) => {
       onClick={() => handlePlanetClick("earth")}
       
       >
-        <sphereGeometry args={[1.005, 32, 32]} />
+        <sphereGeometry args={[2.005, 32 * 2, 32 * 2]} />
         <meshPhongMaterial
           map={cloudsMap}
           opacity={0.4}
@@ -100,7 +100,7 @@ export const Earth = ({handlePlanetClick}: EarthProps) => {
           // target={}
         />
 
-        <sphereGeometry args={[1, 32, 32]} />
+        <sphereGeometry args={[2, 32 * 2, 32 * 2]} />
         {/* 
             
             O primeiro argumento é o raio da esfera, o segundo é o número de segmentos ao longo da largura e o terceiro é o número de segmentos ao longo da altura. Em termos simples, quanto maior o número de segmentos, mais suave será a esfera. 

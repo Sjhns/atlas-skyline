@@ -2,7 +2,7 @@
 
 import { Earth } from "@/components/earth";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [about, setAbout] = useState<"earth" | "mars" | "moon">();
@@ -21,33 +21,27 @@ export default function Home() {
   );
 }
 
-function PlanetInfo({ planetName, description }) {
+type PlanetInfoProps = {
+  planetName: string;
+  description: string;
+};
+
+function PlanetInfo({ planetName, description }: PlanetInfoProps) {
   return (
-    <div
-      className="
-    
-    w-1/2 h-1/2 bg-gray-800 rounded-lg p-4
-    "
-    >
-      <h2 className="">{planetName}</h2>
-      <p>{description}</p>
+    <div className="w-1/2 h-1/2 bg-gray-800 rounded-lg p-4 mt-2">
+      <p className="text-2xl font-bold text-center">{description}</p>
     </div>
   );
 }
 
-function PlanetInfoModal({ planetName }) {
-  const [descriptionVisible, setDescriptionVisible] = useState(false);
+type PlanetInfoModalProps = {
+  planetName: "earth" | "mars" | "moon";
+};
 
-  const handlePlanetClick = (planetName) => {
-    if (about === planetName) {
-      // Se o mesmo planeta for clicado novamente, feche a descrição
-      setAbout(null);
-      setDescriptionVisible(false);
-    } else {
-      setAbout(planetName);
-      setDescriptionVisible(true);
-    }
-  };
+function PlanetInfoModal({ planetName }: PlanetInfoModalProps) {
+  // Cria a referência com o tipo HTMLDivElement
+
+  // ----------------------
 
   // Aqui você pode definir descrições para cada planeta
   const planetDescriptions = {
@@ -61,9 +55,8 @@ function PlanetInfoModal({ planetName }) {
     <div
       className="
     
-    absolute text-white w-full top-0 left-0 flex justify-center items-center bg-opacity-50
+    absolute text-white w-full top-0 left-0 flex justify-center items-center bg-opacity-50 z-20
     "
-      onClick={() => setDescriptionVisible(false)}
     >
       <div className="w-full h-full flex items-center justify-center">
         <PlanetInfo
