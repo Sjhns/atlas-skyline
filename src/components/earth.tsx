@@ -6,6 +6,9 @@ import EarthNormalMap from "@/texture/earth/8k_earth_normal_map.jpg";
 import EarthSpecularMap from "@/texture/earth/8k_earth_specular_map.jpg";
 import EarthCloudsMap from "@/texture/earth/8k_earth_clouds.jpg";
 
+import MoonBumpMap from "@/texture/moon/moonbump4k.jpg";
+import MoonMap from "@/texture/moon/moonmap4k.jpg";
+
 import { DoubleSide, TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
@@ -20,10 +23,16 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
       EarthSpecularMap.src,
       EarthCloudsMap.src,
     ]
-  ); // useLoader é um gancho que carrega recursos assincronamente. Aqui, carregamos as texturas da Terra.
+  );
+
+  const [moonMap, moonBump] = useLoader(TextureLoader, [
+    MoonMap.src,
+    MoonBumpMap.src,
+  ]);
 
   const earthRef = useRef<THREE.Mesh>(null!);
   const cloudsRef = useRef<THREE.Mesh>(null!);
+  const moonRef = useRef<THREE.Mesh>(null!);
 
   const semiMajorAxis = 130;
   const orbitalPeriod = 110;
@@ -40,13 +49,32 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
     earthRef.current.position.set(x, y, 0);
     cloudsRef.current.position.set(x, y, 0);
 
+    // Defina a posição da Lua (em relação à Terra)
+    moonRef.current.position.set(x + 20, y, 0);
+    // 
+
     earthRef.current.rotation.y = elapsedTime / 6;
     cloudsRef.current.rotation.y = elapsedTime / 6;
   });
 
-
   return (
     <>
+      {/* moon */}
+
+      <mesh
+        ref={moonRef}
+        onClick={() => handlePlanetClick("moon")}
+        position={[80, 0, 0]} // posição da Lua
+      >
+        <sphereGeometry args={[6.371 * 0.27, 32 * 2, 32 * 2]} />
+        {/* Tamanho da Lua aproximadamente */}
+        <meshStandardMaterial
+          map={moonMap}
+          bumpMap={moonBump}
+          metalness={0.4}
+          roughness={0.7}
+        />
+      </mesh>
 
       <mesh
         ref={cloudsRef}
