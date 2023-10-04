@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ A propriedade opacity é usada para definir a opacidade da malha. O valor padrão é 1. Um valor de 0 significa que a malha é completamente transparente e um valor de 1 significa que a malha é completamente opaca. A propriedade transparent é usada para definir se a malha é transparente ou não. Se definido como true, a malha é transparente. Se definido como false, a malha é opaca. A propriedade depthWrite é usada para definir se a malha escreve no buffer de profundidade ou não. Se definido como true, a malha escreve no buffer de profundidade. Se definido como false, a malha não escreve no buffer de profundidade. O buffer de profundidade é usado para determinar quais objetos estão mais próximos da câmera. Se a malha não escrever no buffer de profundidade, ela será renderizada por último, independentemente de sua posição na cena. Isso significa que a malha será renderizada por cima de todas as outras malhas, independentemente de sua posição na cena.
 
-## Getting Started
+ -----------------
 
-First, run the development server:
+            O primeiro argumento é o raio da esfera, o segundo é o número de segmentos ao longo da largura e o terceiro é o número de segmentos ao longo da altura. Em termos simples, quanto maior o número de segmentos, mais suave será a esfera. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+--------------------------
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+        A propriedade specularMap é usada para definir o mapa de especularidade da malha. O mapa de especularidade é uma textura que define a cor especular da malha. A cor especular é a cor que aparece quando a luz é refletida na malha.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+----------------------------
 
-## Learn More
+ A propriedade map é usada para definir a textura da malha. Ou seja, a textura é a imagem que será aplicada à malha.
 
-To learn more about Next.js, take a look at the following resources:
+        A propriedade normalMap é usada para definir o mapa normal da malha. O mapa normal é uma textura que define a normal da malha. A normal é a direção perpendicular à superfície da malha. A propriedade metalness é usada para definir o metal da malha. O metal é a quantidade de metal na malha. A propriedade roughness é usada para definir a aspereza da malha. A aspereza é a quantidade de aspereza na malha. Quanto menor o valor, mais suave é a malha. Quanto maior o valor, mais áspera é a malha.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+----------------------------------
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  <pointLight />: A luz pontual é uma luz que irradia em todas as direções a partir de um único ponto. A luz pontual é usada para simular uma fonte de luz, como uma lâmpada. A propriedade color é usada para definir a cor da luz. A propriedade position é usada para definir a posição da luz. A propriedade intensity é usada para definir a intensidade da luz. A intensidade é a quantidade de luz emitida pela luz. O valor padrão é 1. Um valor de 0 significa que a luz não emite luz e um valor de 1 significa que a luz emite luz na intensidade total.
