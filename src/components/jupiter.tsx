@@ -9,7 +9,7 @@ export const Jupiter = ({ handlePlanetClick }: PlanetsProps) => {
 
   const [colorMap] = useLoader(TextureLoader, [JupiterMap.src]);
   
-  const semiMajorAxis = 270;
+  const semiMajorAxis = 230;
   const orbitalPeriod = 220;
 
   useFrame(({ clock }) => {

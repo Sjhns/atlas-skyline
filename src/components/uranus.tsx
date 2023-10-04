@@ -11,8 +11,8 @@ export const Uranus = ({ handlePlanetClick }: PlanetsProps) => {
   const uranusRef = useRef<THREE.Mesh>(null!);
   const ringRef = useRef<THREE.Mesh>(null!);
 
-  const semiMajorAxis = 200;
-  const orbitalPeriod = 290;
+  const semiMajorAxis = 300;
+  const orbitalPeriod = 190;
 
   const [colorMap, ringTexture] = useLoader(TextureLoader, [
     UranusMap.src,
