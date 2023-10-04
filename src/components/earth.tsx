@@ -1,6 +1,5 @@
 "use client";
 
-// import EarthNightMap from "@/texture/earth/8k_earth_nightmap.jpg";
 import EarthDayMap from "@/texture/earth/8k_earth_daymap.jpg";
 import EarthNormalMap from "@/texture/earth/8k_earth_normal_map.jpg";
 import EarthSpecularMap from "@/texture/earth/8k_earth_specular_map.jpg";
@@ -35,7 +34,7 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
   const moonRef = useRef<THREE.Mesh>(null!);
 
   const semiMajorAxis = 130;
-  const orbitalPeriod = 110;
+  const orbitalPeriod = 120;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -51,7 +50,7 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
 
     // Defina a posição da Lua (em relação à Terra)
     moonRef.current.position.set(x + 20, y, 0);
-    // 
+    //
 
     earthRef.current.rotation.y = elapsedTime / 6;
     cloudsRef.current.rotation.y = elapsedTime / 6;
@@ -110,3 +109,4 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
     </>
   );
 };
+
