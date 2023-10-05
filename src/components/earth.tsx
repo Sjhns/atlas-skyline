@@ -53,10 +53,10 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
 
     // Defina a posição da Lua (em relação à Terra)
     moonRef.current.position.set(-x + 20, -y, 0);
-    moonTextRef.current.position.set(-x + 20, -y + 18, 0);
-
+    
     // Defina o posição do  texto
     textRef.current.position.set(-x, -y + 18, 0);
+    moonTextRef.current.position.set(-x + 20, -y + 4, 0);
 
     earthRef.current.rotation.y = elapsedTime / 6;
     cloudsRef.current.rotation.y = elapsedTime / 6;
@@ -82,8 +82,8 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
 
         <Text
           ref={moonTextRef}
-          position={[80, 18, 0]}
-          fontSize={7}
+          position={[80, 1, 0]}
+          fontSize={2}
           color="white"
           anchorX="center"
           anchorY="middle"
