@@ -15,7 +15,7 @@ export const Neptune = ({ handlePlanetClick }: PlanetsProps) => {
 
   const [colorMap] = useLoader(TextureLoader, [NeptuneMap.src]);
 
-  const semiMajorAxis = 300;
+  const semiMajorAxis = 500;
   const orbitalPeriod = 250;
 
   useFrame(({ clock }) => {
