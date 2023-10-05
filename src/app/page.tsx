@@ -4,42 +4,29 @@ import { Earth } from "@/components/earth";
 import { Jupiter } from "@/components/jupiter";
 import { Mars } from "@/components/mars";
 import { Mercury } from "@/components/mercury";
+import { Neptune } from "@/components/neptune";
+import { Saturn } from "@/components/saturn";
 import { Sun } from "@/components/sun";
 import { Uranus } from "@/components/uranus";
 import { Venus } from "@/components/venus";
-import { OrbitControls } from "@react-three/drei";
+import { PlanetsName } from "@/types/planets";
+import { OrbitControls, Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
 
 import * as THREE from "three";
 
 export default function Home() {
-  const [about, setAbout] = useState<
-    | "earth"
-    | "mars"
-    | "moon"
-    | "mercury"
-    | "venus"
-    | "jupiter"
-    | "uranus"
-    | "saturn"
-  >();
+  const [about, setAbout] = useState<PlanetsName>();
 
   const handlePlanetClick = (
-    planetName:
-      | "earth"
-      | "mars"
-      | "moon"
-      | "mercury"
-      | "venus"
-      | "jupiter"
-      | "uranus"
-      | "saturn"
+    planetName: PlanetsName
+
   ) => {
     setAbout(planetName);
   };
 
-  const position = new THREE.Vector3(0, 10, 350);
+  const position = new THREE.Vector3(0, 100, 500);
 
   return (
     <>
@@ -53,20 +40,33 @@ export default function Home() {
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
+
+          // maxPolarAngle={Math.PI / 2}
+          
+          // minPolarAngle={Math.PI / 2}
+          // minAzimuthAngle={-Math.PI / 2}
+          // maxAzimuthAngle={Math.PI / 2}
+          minDistance={100}
+          maxDistance={700}
+
+
           zoomSpeed={2}
           panSpeed={0.5} // significa a velocidade de movimento da câmera
           rotateSpeed={0.4} // velocidade de rotação
           // target={}
         />
+
         <ambientLight intensity={2} />
-        {/* <pointLight color="#f6f3ea" position={[0, 0, 0]} intensity={100} /> */}
+        <pointLight color="#f6f3ea" position={[0, 0, 0]} intensity={100} />
         <Sun />
         <Mercury handlePlanetClick={handlePlanetClick} />
         <Venus handlePlanetClick={handlePlanetClick} />
         <Earth handlePlanetClick={handlePlanetClick} />
         <Mars handlePlanetClick={handlePlanetClick} />
         <Jupiter handlePlanetClick={handlePlanetClick} />
+        <Saturn handlePlanetClick={handlePlanetClick} />
         <Uranus handlePlanetClick={handlePlanetClick} />
+        <Neptune handlePlanetClick={handlePlanetClick} />
       </Canvas>
     </>
   );
@@ -102,15 +102,7 @@ function PlanetInfo({ planetName, description }: PlanetInfoProps) {
 }
 
 type PlanetInfoModalProps = {
-  planetName:
-    | "earth"
-    | "mars"
-    | "moon"
-    | "mercury"
-    | "venus"
-    | "jupiter"
-    | "uranus"
-    | "saturn";
+  planetName: PlanetsName
 };
 
 function PlanetInfoModal({ planetName }: PlanetInfoModalProps) {
@@ -125,6 +117,7 @@ function PlanetInfoModal({ planetName }: PlanetInfoModalProps) {
     jupiter: "Júpiter é o maior planeta do Sistema Solar.",
     uranus: "Urano é o sétimo planeta do Sistema Solar.",
     saturn: "Saturno é o sexto planeta do Sistema Solar.",
+    neptune: "Netuno é o oitavo planeta do Sistema Solar.",
   };
 
   return (

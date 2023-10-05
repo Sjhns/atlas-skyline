@@ -22,7 +22,7 @@ export const Neptune = ({ handlePlanetClick }: PlanetsProps) => {
     const elapsedTime = clock.getElapsedTime();
 
     const angle = (2 * Math.PI * elapsedTime) / orbitalPeriod;
-    const x = semiMajorAxis * Math.cos(angle);
+    const x = semiMajorAxis * Math.cos(angle) + 300;
     const y = semiMajorAxis * Math.sin(angle);
 
     NeptuneRef.current.position.set(-x, -y, 0);

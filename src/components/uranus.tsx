@@ -6,13 +6,15 @@ import UranusRingTexture from "@/texture/uranus/uranusringcolor.jpg"; // Importe
 import { TextureLoader } from "three";
 
 import * as THREE from "three";
+import { Text } from "@react-three/drei";
 
 export const Uranus = ({ handlePlanetClick }: PlanetsProps) => {
   const uranusRef = useRef<THREE.Mesh>(null!);
   const ringRef = useRef<THREE.Mesh>(null!);
+  const textRef = useRef<THREE.Mesh>(null!);
 
-  const semiMajorAxis = 350;
-  const orbitalPeriod = 190;
+  const semiMajorAxis = 430;
+  const orbitalPeriod = 250;
 
   const [colorMap, ringTexture] = useLoader(TextureLoader, [
     UranusMap.src,
@@ -26,14 +28,27 @@ export const Uranus = ({ handlePlanetClick }: PlanetsProps) => {
     const x = semiMajorAxis * Math.cos(angle);
     const y = semiMajorAxis * Math.sin(angle);
 
-    uranusRef.current.position.set(x, y, 0);
-    ringRef.current.position.set(x, y, 0);
+    uranusRef.current.position.set(x, y + 50, 0);
+    ringRef.current.position.set(x, y + 50, 0);
+    textRef.current.position.set(x, y + 50 + 37, 0);
 
     uranusRef.current.rotation.y = elapsedTime / 6; // 6 segundos para dar uma volta completa
   });
 
   return (
     <>
+      <Text
+        ref={textRef}
+        position={[400, 37, 0]}
+        fontSize={15}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+        font="/fonts/KelveticaNobis-A5z6.ttf"
+      >
+        Urano
+      </Text>
+
       <mesh
         ref={uranusRef}
         onClick={() => handlePlanetClick("uranus")}

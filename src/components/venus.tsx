@@ -8,9 +8,11 @@ import * as THREE from "three";
 import VenusMap from "@/texture/venus/venusmap.jpg";
 import VenusAtmosphereMap from "@/texture/venus/4k_venus_atmosphere.jpg";
 import VenusBumpMap from "@/texture/venus/venusbump.jpg";
+import { Text } from "@react-three/drei";
 
 export const Venus = ({ handlePlanetClick }: PlanetsProps) => {
   const venusRef = useRef<THREE.Mesh>(null!);
+  const textRef = useRef<THREE.Mesh>(null!);
 
   const [colorMap, atmosphereMap, bumpMap] = useLoader(TextureLoader, [
     VenusMap.src,
@@ -18,9 +20,8 @@ export const Venus = ({ handlePlanetClick }: PlanetsProps) => {
     VenusBumpMap.src,
   ]);
 
-  // Informações orbitais de Vênus (em unidades fictícias)
-  const semiMajorAxis = 100; // Ajuste o valor proporcionalmente
-  const orbitalPeriod = 80; // Ajuste o valor proporcionalmente
+  const semiMajorAxis = 110;
+  const orbitalPeriod = 250;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -32,12 +33,25 @@ export const Venus = ({ handlePlanetClick }: PlanetsProps) => {
 
     // Defina a posição de Vênus
     venusRef.current.position.set(x, y, 0);
+    textRef.current.position.set(x, y + 10, 0);
 
     venusRef.current.rotation.y = elapsedTime / 6; // 6 segundos para dar uma volta completa
   });
 
   return (
     <>
+    <Text
+        ref={textRef}
+        position={[40, 10, 0]}
+        fontSize={5}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+        font="/fonts/KelveticaNobis-A5z6.ttf"
+      >
+        Venus
+      </Text>
+
       <mesh
         ref={venusRef}
         onClick={() => handlePlanetClick("venus")}

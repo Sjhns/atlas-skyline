@@ -1,13 +1,16 @@
 export type PlanetsProps = {
   handlePlanetClick: (
-    planetName:
-      | "earth"
-      | "mars"
-      | "moon"
-      | "mercury"
-      | "venus"
-      | "jupiter"
-      | "uranus"
-      | "saturn"
+    planetName: PlanetsName,
   ) => void;
 };
+
+
+export type  PlanetsName =  | "earth"
+                            | "mars"
+                            | "moon"
+                            | "mercury"
+                            | "venus"
+                            | "jupiter"
+                            | "uranus"
+                            | "saturn"
+                            | "neptune"

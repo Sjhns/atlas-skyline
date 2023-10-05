@@ -5,7 +5,7 @@ import SunMap from "@/texture/sun/sunmap.jpg"; // Importe a textura base correta
 import SunSpecMap from "@/texture/sun/sunspecmap.jpg"; // Importe a textura para os anéis de Saturno
 import { TextureLoader } from "three";
 import SceneBackground1 from "@/texture/background/8k_stars_milky_way.jpg";
-
+import { Text } from "@react-three/drei";
 
 export const Sun = () => {
   const sunRef = useRef<THREE.Mesh>(null!);
@@ -28,17 +28,27 @@ export const Sun = () => {
 
   return (
     <>
+      <Text
+        position={[0, 80, 0]} // posição da Terra
+        fontSize={20}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+        font="/fonts/KelveticaNobis-A5z6.ttf"
+      >
+        Sol
+      </Text>
+
       <mesh ref={sunRef} position={[0, 0, 0]}>
-      <sphereGeometry args={[70, 32 * 2, 32 * 2]} /> {/* Tamanho do Sol */}
-      <meshStandardMaterial
-        map={colorMap}
-        emissiveMap={sunSpecMap}
-        emissiveIntensity={2}
-        emissive={"#FFD700"}
-        side={THREE.DoubleSide} // A face interna também será visível
-        
-      />
-    </mesh>
+        <sphereGeometry args={[70, 32 * 2, 32 * 2]} /> {/* Tamanho do Sol */}
+        <meshStandardMaterial
+          map={colorMap}
+          emissiveMap={sunSpecMap}
+          emissiveIntensity={2}
+          emissive={"#FFD700"}
+          side={THREE.DoubleSide} // A face interna também será visível
+        />
+      </mesh>
     </>
   );
 };

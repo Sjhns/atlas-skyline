@@ -12,6 +12,7 @@ import { DoubleSide, TextureLoader } from "three";
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import { PlanetsProps } from "@/types/planets";
+import { Text } from "@react-three/drei";
 
 export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
   const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(
@@ -32,9 +33,10 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
   const earthRef = useRef<THREE.Mesh>(null!);
   const cloudsRef = useRef<THREE.Mesh>(null!);
   const moonRef = useRef<THREE.Mesh>(null!);
+  const textRef = useRef<THREE.Mesh>(null!);
 
-  const semiMajorAxis = 130;
-  const orbitalPeriod = 120;
+  const semiMajorAxis = 150;
+  const orbitalPeriod = 250;
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -45,12 +47,14 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
     const y = semiMajorAxis * Math.sin(angle);
 
     // Defina a posição da Terra
-    earthRef.current.position.set(x, y, 0);
-    cloudsRef.current.position.set(x, y, 0);
+    earthRef.current.position.set(-x , -y, 0);
+    cloudsRef.current.position.set(-x  , -y, 0);
 
     // Defina a posição da Lua (em relação à Terra)
-    moonRef.current.position.set(x + 20, y, 0);
-    //
+    moonRef.current.position.set(-x + 20, -y, 0);
+
+    // Defina o posição do  texto
+    textRef.current.position.set(-x, -y + 18, 0);
 
     earthRef.current.rotation.y = elapsedTime / 6;
     cloudsRef.current.rotation.y = elapsedTime / 6;
@@ -59,6 +63,22 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
   return (
     <>
       {/* moon */}
+
+      <mesh>
+        <Text
+          ref={textRef}
+          position={[80, 18, 0]} // posição da Terra
+          fontSize={7}
+          color="white"
+          anchorX="center"
+          anchorY="middle"
+          font="/fonts/KelveticaNobis-A5z6.ttf"
+
+          // rotation={[0, 0, 0]}
+        >
+          Terra
+        </Text>
+      </mesh> 
 
       <mesh
         ref={moonRef}
@@ -109,4 +129,3 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
     </>
   );
 };
-
