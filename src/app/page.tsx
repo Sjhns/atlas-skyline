@@ -7,13 +7,11 @@ import { Mercury } from "@/components/mercury";
 import { Sun } from "@/components/sun";
 import { Uranus } from "@/components/uranus";
 import { Venus } from "@/components/venus";
-import { OrbitControls, Stars } from "@react-three/drei";
-import { Canvas, useLoader, useThree } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
-import { TextureLoader } from "three";
 
 import * as THREE from "three";
-import SceneBackground from "@/texture/background/8k_stars_milky_way_dark2.jpg";
 
 export default function Home() {
   const [about, setAbout] = useState<
@@ -41,7 +39,7 @@ export default function Home() {
     setAbout(planetName);
   };
 
-  const position = new THREE.Vector3(0, 0, 300);
+  const position = new THREE.Vector3(0, 10, 350);
 
   return (
     <>
@@ -126,7 +124,7 @@ function PlanetInfoModal({ planetName }: PlanetInfoModalProps) {
     venus: "Vênus é o segundo planeta do Sistema Solar.",
     jupiter: "Júpiter é o maior planeta do Sistema Solar.",
     uranus: "Urano é o sétimo planeta do Sistema Solar.",
-    saturn: "Saturno é o sexto planeta do Sistema Solar.",  
+    saturn: "Saturno é o sexto planeta do Sistema Solar.",
   };
 
   return (
