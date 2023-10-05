@@ -34,6 +34,7 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
   const cloudsRef = useRef<THREE.Mesh>(null!);
   const moonRef = useRef<THREE.Mesh>(null!);
   const textRef = useRef<THREE.Mesh>(null!);
+  const moonTextRef = useRef<THREE.Mesh>(null!);
 
   const semiMajorAxis = 150;
   const orbitalPeriod = 250;
@@ -52,6 +53,7 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
 
     // Defina a posição da Lua (em relação à Terra)
     moonRef.current.position.set(-x + 20, -y, 0);
+    moonTextRef.current.position.set(-x + 20, -y + 18, 0);
 
     // Defina o posição do  texto
     textRef.current.position.set(-x, -y + 18, 0);
@@ -64,21 +66,32 @@ export const Earth = ({ handlePlanetClick }: PlanetsProps) => {
     <>
       {/* moon */}
 
-      <mesh>
+   
         <Text
           ref={textRef}
-          position={[80, 18, 0]} // posição da Terra
+          position={[80, 18, 0]}
           fontSize={7}
           color="white"
           anchorX="center"
           anchorY="middle"
           font="/fonts/KelveticaNobis-A5z6.ttf"
 
-          // rotation={[0, 0, 0]}
         >
           Terra
         </Text>
-      </mesh> 
+
+        <Text
+          ref={moonTextRef}
+          position={[80, 18, 0]}
+          fontSize={7}
+          color="white"
+          anchorX="center"
+          anchorY="middle"
+          font="/fonts/KelveticaNobis-A5z6.ttf"
+        >
+          Lua
+        </Text>
+     
 
       <mesh
         ref={moonRef}
