@@ -40,6 +40,10 @@ export const PlanetInfo = ({
       <Paragraph>
         <strong>Período orbital:</strong> {orbitalPeriod} {orbitalPeriodRank}
       </Paragraph>
+
+      <button className="mt-5 w-full bg-gray-800 hover:opacity-90 text-white px-5 py-2 rounded-md">
+        Mais informações <span>&rarr;</span>
+      </button>
     </div>
   );
 };
