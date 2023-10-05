@@ -18,7 +18,7 @@ export const Saturn = ({ handlePlanetClick }: PlanetsProps) => {
     SaturnRingTexture.src,
   ]);
 
-  const semiMajorAxis = 300; // Eixo semi-principal da órbita (aumentado para considerar o tamanho maior do Sol)
+  const semiMajorAxis = 280; // Eixo semi-principal da órbita (aumentado para considerar o tamanho maior do Sol)
   const orbitalPeriod = 250;
 
   useFrame(({ clock }) => {
