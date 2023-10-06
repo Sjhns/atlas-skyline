@@ -1,7 +1,7 @@
 import { PlanetInfo } from "@/types/planets";
 
 export const planetData: Record<string, PlanetInfo> = {
-    mercury: {
+  mercury: {
     name: "Mercúrio",
     distanceFromSun: "57.910.000 Km",
     distanceRank: "(1º em proximidade)",
@@ -12,6 +12,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "88 dias",
     orbitalPeriodRank: "(1º em rapidez)",
+    images: [],
   },
   venus: {
     name: "Vênus",
@@ -24,6 +25,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "225 dias",
     orbitalPeriodRank: "(2º em rapidez)",
+    images: [],
   },
   earth: {
     name: "Terra",
@@ -36,6 +38,14 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "365 dias",
     orbitalPeriodRank: "(3º em rapidez)",
+    images: [
+      "/images/planets/earth/1.avif",
+      "/images/planets/earth/2.jpg",
+      "/images/planets/earth/3.jpg",
+      "/images/planets/earth/4.jpg",
+      "/images/planets/earth/5.jpg",
+      "/images/planets/earth/6.jpg",
+    ],
   },
   mars: {
     name: "Marte",
@@ -48,6 +58,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,603 bilhões de anos",
     orbitalPeriod: "687 dias",
     orbitalPeriodRank: "(4º em rapidez)",
+    images: [],
   },
   jupiter: {
     name: "Júpiter",
@@ -60,6 +71,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "4.333 dias",
     orbitalPeriodRank: "(5º em rapidez)",
+    images: [],
   },
   saturn: {
     name: "Saturno",
@@ -72,6 +84,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "10.757 dias",
     orbitalPeriodRank: "(6º em rapidez)",
+    images: [],
   },
   uranus: {
     name: "Urano",
@@ -84,6 +97,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "30.799 dias",
     orbitalPeriodRank: "(7º em rapidez)",
+    images: [],
   },
   neptune: {
     name: "Netuno",
@@ -96,6 +110,7 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "60.190 dias",
     orbitalPeriodRank: "(8º em rapidez)",
+    images: [],
   },
   moon: {
     name: "Lua",
@@ -108,5 +123,6 @@ export const planetData: Record<string, PlanetInfo> = {
     age: "4,6 bilhões de anos",
     orbitalPeriod: "27,3 dias",
     orbitalPeriodRank: "(1º em rapidez)",
-  }
+    images: [],
+  },
 };

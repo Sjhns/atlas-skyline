@@ -13,6 +13,7 @@ export type PlanetInfo = {
   age: string;
   orbitalPeriod: string;
   orbitalPeriodRank: string;
+  images: string[];
 };
 
 export type PlanetsName =

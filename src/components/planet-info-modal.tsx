@@ -4,7 +4,6 @@ import { planetData } from "@/data/planets";
 
 type PlanetInfoModalProps = {
   planetName: PlanetsName;
-  setClose: (close: boolean) => void;
 };
 
 export const PlanetInfoModal = ({ planetName }: PlanetInfoModalProps) => {

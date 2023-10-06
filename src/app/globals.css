@@ -11,6 +11,16 @@ body {
   color: #fff;
 }
 
-mesh {
-  cursor: pointer;
+/* Estilização da barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #2a2a2a; /* Cor de fundo da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #504f4f; /* Cor do indicador da barra de rolagem */
+  border-radius: 5px;
 }
