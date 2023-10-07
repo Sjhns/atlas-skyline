@@ -143,3 +143,25 @@ export const InfoPainel = ({ planet }: Props) => {
     </div>
   );
 };
+
+export const AbaStatistic = ({ planet }: { planet: string }) => {};
+
+export const AbaImagens = () => {
+  return <h1>AbaImagens</h1>;
+};
+
+export const AbaViagens = () => {
+  return <h1>AbaViagens</h1>;
+};
+
+export const AbaNavegacao = () => {
+  return <h1>AbaNavegacao</h1>;
+};
+
+export const AbaSistema = () => {
+  return <h1>AbaSistema</h1>;
+};
+
+export const AbaSair = () => {
+  return <h1>AbaSair</h1>;
+};

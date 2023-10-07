@@ -13,7 +13,13 @@ import { OrbitControls } from "@react-three/drei";
 import { SimpleMars } from "./planets/simple-mars";
 import { MenuOption } from "./painel/menu-option";
 import { SideBar } from "./painel/sidebar";
-import { InfoPainel } from "./painel/info-painel";
+import {
+  AbaImagens,
+  AbaNavegacao,
+  AbaSistema,
+  AbaViagens,
+  InfoPainel,
+} from "./painel/info-painel";
 import { PlanetPainel } from "./painel/planet-painel";
 import { Footer } from "./painel/footer";
 import { ActiveTimeCounter } from "./painel/active-time-counter";
@@ -36,6 +42,8 @@ export const PlanetItinerary = () => {
   //   return null;
   // }
 
+  const [aba, setAba] = useState(0);
+
   return (
     <div
       className="h-screen w-full flex bg-[#111B52]"
@@ -44,8 +52,8 @@ export const PlanetItinerary = () => {
         fontVariantNumeric: " lining-nums proportional-nums",
       }}
     >
-      <div className="flex-1 flex flex-col w-full">
-        <div className="px-5 py-3 flex items-center w-full border-b justify-between bg-[#020738]">
+      <div className="flex-1 flex flex-col w-full relative">
+        <div className="px-5 py-3 flex items-center w-full border-b justify-between bg-[#020738] sticky top-0">
           <section className="flex items-center space-x-10">
             <div className="flex flex-col items-center justify-center">
               <MenuOption title="Painel Espacial" sub="Atlas Skyline" />
@@ -73,11 +81,20 @@ export const PlanetItinerary = () => {
         </div>
 
         <main className="h-full w-full flex bg-[#020738] border-x border-b rounded-b-[50px] overflow-hidden">
-          <SideBar />
+          <SideBar setAba={setAba} />
 
-          <InfoPainel planet="Marte" />
+          {aba === 0 && (
+            <>
+              <InfoPainel planet="Marte" />
 
-          <PlanetPainel />
+              <PlanetPainel />
+            </>
+          )}
+
+          {aba === 1 && <AbaImagens />}
+          {aba === 2 && <AbaViagens />}
+          {aba === 3 && <AbaNavegacao />}
+          {aba === 4 && <AbaSistema />}
         </main>
 
         <Footer />
