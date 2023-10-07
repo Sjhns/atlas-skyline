@@ -12,9 +12,11 @@
     "@react-three/drei": "^9.86.3",
     "@react-three/fiber": "^8.14.4",
     "@types/three": "^0.156.0",
+    "framer-motion": "^10.16.4",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^4.11.0",
     "three": "^0.157.0"
   },
   "devDependencies": {

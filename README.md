@@ -6,7 +6,6 @@
 
 --------------------------
 
-
         A propriedade specularMap é usada para definir o mapa de especularidade da malha. O mapa de especularidade é uma textura que define a cor especular da malha. A cor especular é a cor que aparece quando a luz é refletida na malha.
 
 ----------------------------
@@ -17,5 +16,25 @@
 
 ----------------------------------
 
-
   <pointLight />: A luz pontual é uma luz que irradia em todas as direções a partir de um único ponto. A luz pontual é usada para simular uma fonte de luz, como uma lâmpada. A propriedade color é usada para definir a cor da luz. A propriedade position é usada para definir a posição da luz. A propriedade intensity é usada para definir a intensidade da luz. A intensidade é a quantidade de luz emitida pela luz. O valor padrão é 1. Um valor de 0 significa que a luz não emite luz e um valor de 1 significa que a luz emite luz na intensidade total.
+
+  --------------
+
+<https://unsplash.com/pt-br/fotografias/xFO2Xt33xgI>
+
+--------- 3d nave
+
+<https://codesandbox.io/s/2ij9u?file=/src/App.js>
+
+------------------ elementos 3d
+
+<https://free3d.com/pt/3d-model/mars-photorealistic-2k-671043.html>
+
+--------------------- images dos planetas / githbu
+
+<https://discourse.threejs.org/t/realistic-browser-based-solar-system-simulation-built-using-three-js/26541>
+
+--------------------- base outros sites -----
+
+1. <https://oursolarsystem.info/index.html>
+2. <https://tycho.io/>

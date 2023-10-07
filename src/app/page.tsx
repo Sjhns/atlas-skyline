@@ -1,89 +1,61 @@
 "use client";
 
-import { Earth } from "@/components/planets/earth";
-import { Jupiter } from "@/components/planets/jupiter";
-import { Mars } from "@/components/planets/mars";
-import { Mercury } from "@/components/planets/mercury";
-import { Neptune } from "@/components/planets/neptune";
-import { PlanetInfoModal } from "@/components/planet-info-modal";
-import { Saturn } from "@/components/planets/saturn";
-import { Sun } from "@/components/planets/sun";
-import { Uranus } from "@/components/planets/uranus";
-import { Venus } from "@/components/planets/venus";
-import { PlanetInfo, PlanetsName } from "@/types/planets";
-import { OrbitControls, Stars } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
-
-import * as THREE from "three";
-import { PlanetProvider } from "@/context/planet-context";
+import { ChoosePlan } from "@/components/parts/choose-plan";
+import { ChoosePlanet } from "@/components/parts/chosse-planet";
+import { Health } from "@/components/parts/health";
+import { Insurances } from "@/components/parts/insurances";
+import { Welcome } from "@/components/parts/welcome";
 import { PlanetItinerary } from "@/components/planet-itinerary";
+import { Raleway } from "next/font/google";
+import { useEffect, useState } from "react";
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export default function Home() {
-  const [about, setAbout] = useState<PlanetsName>();
+  const [telaAtual, setTelaAtual] = useState(0);
+  const [scrolling, setScrolling] = useState(false);
 
-  const handlePlanetClick = (planetName: PlanetsName) => {
-    setAbout(planetName);
-  };
+  useEffect(() => {
+    const handleScroll = (event: WheelEvent) => {
+      if (!scrolling) {
+        setScrolling(true);
 
-  const position = new THREE.Vector3(0, 100, 500);
+        if (event.deltaY > 0 && telaAtual < 5) {
+          setTelaAtual(telaAtual + 1);
+        } else if (event.deltaY < 0 && telaAtual > 0) {
+          setTelaAtual(telaAtual - 1);
+        }
+
+        setTimeout(() => {
+          setScrolling(false);
+        }, 1000); // Tempo em milissegundos para habilitar o scroll novamente
+      }
+    };
+
+    document.addEventListener("wheel", handleScroll);
+
+    return () => {
+      document.removeEventListener("wheel", handleScroll);
+    };
+  }, [telaAtual, scrolling]);
 
   return (
-    <>
-      <PlanetProvider>
-        {about && <PlanetInfoModal planetName={about} />}
-        <PlanetItinerary />
-        <Canvas
-          camera={{
-            position: position,
-          }}
-        >
-          <OrbitControls
-            enablePan={true}
-            enableZoom={true}
-            enableRotate={true}
-            // maxPolarAngle={Math.PI / 2}
-
-            // minPolarAngle={Math.PI / 2}
-            // minAzimuthAngle={-Math.PI / 2}
-            // maxAzimuthAngle={Math.PI / 2}
-            minDistance={100}
-            maxDistance={700}
-            zoomSpeed={2}
-            panSpeed={0.5} // significa a velocidade de movimento da câmera
-            rotateSpeed={0.4} // velocidade de rotação
-            // target={}
-          />
-
-          <ambientLight intensity={2} />
-          <pointLight color="#f6f3ea" position={[0, 0, 0]} intensity={100} />
-          <Sun />
-          <Mercury handlePlanetClick={handlePlanetClick} />
-          <Venus handlePlanetClick={handlePlanetClick} />
-          <Earth handlePlanetClick={handlePlanetClick} />
-          <Mars handlePlanetClick={handlePlanetClick} />
-          <Jupiter handlePlanetClick={handlePlanetClick} />
-          <Saturn handlePlanetClick={handlePlanetClick} />
-          <Uranus handlePlanetClick={handlePlanetClick} />
-          <Neptune handlePlanetClick={handlePlanetClick} />
-        </Canvas>
-      </PlanetProvider>
-    </>
-  );
-}
-
-function Loading() {
-  return (
-    <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]}>
-      <sphereGeometry attach="geometry" args={[1, 16, 16]} />
-      <meshStandardMaterial
-        attach="material"
-        color="white"
-        transparent
-        opacity={0.6}
-        roughness={1}
-        metalness={0}
-      />
-    </mesh>
+    <div
+      className="h-screen flex items-center justify-center flex-col"
+      style={{
+        fontFamily: raleway.style.fontFamily,
+        fontWeight: raleway.style.fontWeight,
+      }}
+    >
+      {telaAtual === 0 && <Welcome />}
+      {telaAtual === 1 && <ChoosePlanet />}
+      {telaAtual === 2 && <Health />}
+      {telaAtual === 3 && <ChoosePlan />}
+      {telaAtual === 4 && <Insurances />}
+      {telaAtual === 5 && <PlanetItinerary />}
+    </div>
   );
 }
