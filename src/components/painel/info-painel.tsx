@@ -8,7 +8,7 @@ type Props = {
 
 export const InfoPainel = ({ planet }: Props) => {
   return (
-    <div className="flex-1 w-full border-r pl-8 pr-16">
+    <div className="flex-1 w-full border-r pl-8 pr-16 overflow-y-auto min-w-min pb-14">
       <div className="p-5 flex w-full items-center justify-between mb-5">
         <div className="flex space-x-3 ">
           <span className="rounded bg-[#111B52] border p-3 text-white">
@@ -36,33 +36,37 @@ export const InfoPainel = ({ planet }: Props) => {
         <div className="bg-[#111B52] p-5  rounded w-full">
           <h3 className="text-xl font-bold flex items-center pb-2 mb-3 border-b">
             <AiFillExclamationCircle className="text-xl mr-2 text-yellow-300" />
-            Crew Interrupt Conditions
+            Duração média da viagem:
           </h3>
 
           <div className="space-y-3">
             <div className="flex items-center">
               <span className="whitespace-nowrap font-bold ">
-                30° sustained altitude error
+                Partindo da Terra:
               </span>
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
               <span className="font-bold whitespace-nowrap">
-                Crew Interrupt Conditions
+                1000 dias.
               </span>
             </div>
 
             <div className="flex items-center">
               <span className="whitespace-nowrap font-bold ">
-                600°/m altitude rate
+                Retornando de Marte:
               </span>
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
               <span className="font-bold whitespace-nowrap">
-                FAR FIELD POINTING
+                1000 dias.
               </span>
             </div>
+            <h2 className="text-justify flex items-center pb-2 mb-3 border-b">Dados baseados 
+              em um aproveitamento de energia eficiente para uma boa sustentabilidade no 
+              consumo de combustível.
+            </h2>
           </div>
         </div>
 
@@ -71,31 +75,31 @@ export const InfoPainel = ({ planet }: Props) => {
         <div className="bg-[#111B52] p-5  rounded w-full">
           <h3 className="text-xl font-bold flex items-center pb-2 mb-3 border-b">
             <AiFillExclamationCircle className="text-xl mr-2 text-yellow-300" />
-            Crew Deorbit Preparation
+            Próximas expedições:
           </h3>
 
           <div className="space-y-3">
             <div className="flex items-center">
               <span className="whitespace-nowrap font-bold ">
-                Deorbit burn - 3 hrs
+                Xe 2024
               </span>
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
               <span className="font-bold whitespace-nowrap">
-                On SpaceX, On, begin procedure 4.700
+                SpaceX
               </span>
             </div>
 
             <div className="flex items-center">
               <span className="whitespace-nowrap font-bold ">
-                NLT Deorbit Burn - 1 hr
+                Mars Run 2033
               </span>
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
               <span className="font-bold whitespace-nowrap">
-                Deorbit Burn Brief
+                SpaceX
               </span>
             </div>
             <div className="flex items-center">
