@@ -15,7 +15,7 @@ import { MenuOption } from "./common/menu-option";
 import { SideBar } from "./common/sidebar";
 import { InfoPainel } from "./painel/info-painel";
 import { PlanetPainel } from "./painel/planet-painel";
-import { Footer } from "./painel/header";
+import { Footer } from "./painel/footer";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
