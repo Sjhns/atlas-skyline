@@ -1,3 +1,5 @@
+"use client";
+
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import BaseMap from "@/texture/mars/mars_1k_color.jpg";
