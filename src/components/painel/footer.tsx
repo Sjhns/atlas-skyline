@@ -1,3 +1,7 @@
+"use client";
+
+import { CurrentDate, CurrentTime } from "./current-datetime";
+
 export const Footer = () => {
   return (
     <footer className="w-full flex items-center justify-between px-5 py-3 bg-[#111B52]">
@@ -72,8 +76,10 @@ export const Footer = () => {
         </div>
 
         {/* 4 */}
-        <div>
-          <span className="text-sm font-bold">06/10/2023</span>
+        <div className="flex flex-col items-center justify-center">
+          <CurrentDate />
+          <CurrentTime />
+          {/* <span className="text-sm font-bold">06/10/2023</span> */}
         </div>
       </div>
     </footer>
