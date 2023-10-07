@@ -13,6 +13,7 @@ body {
 
 /* Estilização da barra de rolagem */
 ::-webkit-scrollbar {
+  display: none;
   width: 10px;
 }
 

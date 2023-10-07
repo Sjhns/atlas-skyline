@@ -8,7 +8,7 @@ type Props = {
 
 export const InfoPainel = ({ planet }: Props) => {
   return (
-    <div className="flex-1 w-full border-r pl-8 pr-16 overflow-y-auto min-w-min pb-14">
+    <div className="flex-1 w-full border-r pl-8 pr-10 overflow-y-auto min-w-min pb-14 mr-10">
       <div className="p-5 flex w-full items-center justify-between mb-5">
         <div className="flex space-x-3 ">
           <span className="rounded bg-[#111B52] border p-3 text-white">
@@ -47,9 +47,7 @@ export const InfoPainel = ({ planet }: Props) => {
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
-              <span className="font-bold whitespace-nowrap">
-                1000 dias.
-              </span>
+              <span className="font-bold whitespace-nowrap">1000 dias.</span>
             </div>
 
             <div className="flex items-center">
@@ -59,13 +57,11 @@ export const InfoPainel = ({ planet }: Props) => {
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
-              <span className="font-bold whitespace-nowrap">
-                1000 dias.
-              </span>
+              <span className="font-bold whitespace-nowrap">1000 dias.</span>
             </div>
-            <h2 className="text-justify flex items-center pb-2 mb-3 text-sm text-gray-200 mt-4">Dados baseados 
-              em um aproveitamento de energia eficiente para uma boa sustentabilidade no 
-              consumo de combustível.
+            <h2 className="text-justify flex items-center pb-2 mb-3 text-sm text-gray-200 mt-4">
+              Dados baseados em um aproveitamento de energia eficiente para uma
+              boa sustentabilidade no consumo de combustível.
             </h2>
           </div>
         </div>
@@ -86,9 +82,7 @@ export const InfoPainel = ({ planet }: Props) => {
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
-              <span className="font-bold whitespace-nowrap">
-                SpaceX
-              </span>
+              <span className="font-bold whitespace-nowrap">SpaceX</span>
             </div>
 
             <div className="flex items-center">
@@ -98,25 +92,17 @@ export const InfoPainel = ({ planet }: Props) => {
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
-              <span className="font-bold whitespace-nowrap">
-                SpaceX
-              </span>
+              <span className="font-bold whitespace-nowrap">SpaceX</span>
             </div>
             <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                ;
-              </span>
+              <span className="whitespace-nowrap font-bold ">;</span>
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
-              <span className="font-bold whitespace-nowrap">
-                ;
-              </span>
+              <span className="font-bold whitespace-nowrap">;</span>
             </div>
             <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                ;
-              </span>
+              <span className="whitespace-nowrap font-bold ">;</span>
 
               <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
 
@@ -135,10 +121,22 @@ export const InfoPainel = ({ planet }: Props) => {
           <div className="space-y-3">
             <div className="flex items-center">
               <p className="font-bold line-clamp-2">
-              Marte, conhecido como o planeta vermelho, é o quarto planeta do sistema solar e o segundo menor, situando-se a uma distância de 227 milhões de km do Sol e possui um diâmetro de aproximadamente 6791 km. Sua superfície sólida é formada por de basalto ígneo, arenito sedimentar, argilito, impactitos e evaporitos, rochas compostas por carbonatos, sulfatos, sílica, filossilicatos, fosfatos e óxidos de ferro - material responsável pela aparência vermelha-alaranjada do planeta. 
-	            Ademais, a atmosfera do corpo celeste é constituída de dióxido de carbono, nitrogênio e argônio, além disso ela é bastante fraca e sua pressão atmosférica é apenas cerca de 0,6% da Terra. Sua gravidade é de 3,71 m/s², o que significa que uma pessoa de 45 kg pesaria 17 kg em Marte e ele possui dois satélites naturais, conhecidos como: Fobos e Deimos.
+                Marte, conhecido como o planeta vermelho, é o quarto planeta do
+                sistema solar e o segundo menor, situando-se a uma distância de
+                227 milhões de km do Sol e possui um diâmetro de aproximadamente
+                6791 km. Sua superfície sólida é formada por de basalto ígneo,
+                arenito sedimentar, argilito, impactitos e evaporitos, rochas
+                compostas por carbonatos, sulfatos, sílica, filossilicatos,
+                fosfatos e óxidos de ferro - material responsável pela aparência
+                vermelha-alaranjada do planeta. Ademais, a atmosfera do corpo
+                celeste é constituída de dióxido de carbono, nitrogênio e
+                argônio, além disso ela é bastante fraca e sua pressão
+                atmosférica é apenas cerca de 0,6% da Terra. Sua gravidade é de
+                3,71 m/s², o que significa que uma pessoa de 45 kg pesaria 17 kg
+                em Marte e ele possui dois satélites naturais, conhecidos como:
+                Fobos e Deimos.
               </p>
-          </div>    
+            </div>
           </div>
         </div>
       </div>
