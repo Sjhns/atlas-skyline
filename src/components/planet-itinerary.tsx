@@ -16,6 +16,7 @@ import { SideBar } from "./painel/sidebar";
 import { InfoPainel } from "./painel/info-painel";
 import { PlanetPainel } from "./painel/planet-painel";
 import { Footer } from "./painel/footer";
+import { ActiveTimeCounter } from "./painel/active-time-counter";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -50,7 +51,7 @@ export const PlanetItinerary = () => {
               <MenuOption title="Painel Espacial" sub="Atlas Skyline" />
             </div>
 
-            <MenuOption title="Horário local espacial" sub="T-:163:075:08" />
+            <ActiveTimeCounter title="Tempo ativo" />
           </section>
 
           <section className="flex items-center space-x-10">
