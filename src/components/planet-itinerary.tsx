@@ -10,6 +10,12 @@ import { AiFillExclamationCircle } from "react-icons/ai";
 import { SimpleEarth } from "./planets/simple-earth";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { SimpleMars } from "./planets/simple-mars";
+import { MenuOption } from "./common/menu-option";
+import { SideBar } from "./common/sidebar";
+import { InfoPainel } from "./painel/info-painel";
+import { PlanetPainel } from "./painel/planet-painel";
+import { Footer } from "./painel/header";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -41,355 +47,39 @@ export const PlanetItinerary = () => {
         <div className="px-5 py-3 flex items-center w-full border-b justify-between bg-[#020738]">
           <section className="flex items-center space-x-10">
             <div className="flex flex-col items-center justify-center">
-              <MenuOption title="Active Phase" sub="Deorbit Coast" />
-              {/* <span className="text-xl font-bold">Active Phase</span>
-            <span className="text-xl font-bold">Deorbit Coast</span> */}
+              <MenuOption title="Painel Espacial" sub="Atlas Skyline" />
             </div>
 
-            <MenuOption title="Deorbit Burn" sub="T-:00:00:00" />
-
-            {/* <div>
-            <span>Splashdown time</span>
-            <span>T-:00:00:00</span>
-          </div> */}
+            <MenuOption title="Horário local espacial" sub="T-:163:075:08" />
           </section>
 
           <section className="flex items-center space-x-10">
-            <MenuOption title="inertial velocity" sub="7.69 km/s" />
+            <MenuOption title="Gravidade local" sub="3,71 m/s²" />
 
-            <MenuOption title="Altitude" sub="393.3kms" />
+            <MenuOption title="Diâmetro" sub="6.779 km" />
 
-            <MenuOption title="Apogee" sub="416.2km" />
+            <MenuOption title="Temperatura média" sub="-62 graus Celsius " />
 
-            <MenuOption title="Perigee" sub="379.4km" />
+            <MenuOption
+              title="Distância do Sol"
+              sub="2,28 x 10"
+              potencial="8 "
+              distance="km"
+            />
 
-            <MenuOption title="Inclination" sub="51.62°" />
+            <MenuOption title="Período de orbita" sub="687 dias" />
           </section>
         </div>
 
         <main className="h-full w-full flex bg-[#020738] border-x border-b rounded-b-[50px] overflow-hidden">
           <SideBar />
 
-          <InfoPainel />
+          <InfoPainel planet="Marte" />
 
           <PlanetPainel />
         </main>
 
-        <header className="w-full flex items-center justify-between px-5 py-3 bg-[#111B52]">
-          <div className="flex items-center space-x-5">
-            <span>
-              <img
-                src="/svgs/navigation/1.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-            </span>
-            <span>
-              <img
-                src="/svgs/navigation/2.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-            </span>
-            <span>
-              <img
-                src="/svgs/navigation/3.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-            </span>
-            <span>
-              <img
-                src="/svgs/navigation/4.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-            </span>
-            <span>
-              <img
-                src="/svgs/navigation/5.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-            </span>
-          </div>
-
-          <div className="border-r pr-2 flex items-end flex-col">
-            <span className="text-sm font-bold">current state</span>
-            <span className="text-sm font-bold">
-              Far Field Pointing Deorbit
-            </span>
-          </div>
-
-          <div className="border-l pl-2 flex items-start flex-col">
-            <span className="text-sm font-bold">current state</span>
-            <span className="text-sm font-bold">
-              Far Field Pointing Deorbit
-            </span>
-          </div>
-
-          <div className="flex items-center space-x-8">
-            {/* 1  */}
-            <div className="flex items-center space-x-2">
-              <img
-                src="/svgs/controls/1.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-              <span className="text-sm font-bold text-[#20FBFD]">SPX</span>
-            </div>
-
-            {/* 2 */}
-            <div className="flex items-center space-x-3">
-              <div className="flex flex-col items-center justify-center">
-                <img
-                  src="/svgs/controls/2.svg"
-                  alt="Logo"
-                  className="w-4 h-4"
-                />
-                <img
-                  src="/svgs/controls/3.svg"
-                  alt="Logo"
-                  className="w-4 h-4"
-                />
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <span className="text-sm font-bold text-[#20FBFD] border-b-2  pb-1 border-[#20FBFD]">
-                  22:23
-                </span>
-                <span className="text-sm font-bold text-[#20FBFD]">GND</span>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <span
-                  className="text-sm font-bold text-[#20FBFD] 
-             border-b-2  pb-1 border-[#20FBFD]"
-                >
-                  0.00
-                </span>
-                <span className="text-sm font-bold text-[#20FBFD]">TDRS</span>
-              </div>
-            </div>
-
-            {/* 3 */}
-            <div className="flex items-center space-x-2">
-              <img
-                src="/svgs/controls/1.svg"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-              <span className="font-bold text-gray-500">ISS</span>
-              <div className="flex flex-col items-center justify-center">
-                <img
-                  src="/svgs/controls/4.svg"
-                  alt="Logo"
-                  className="w-4 h-4"
-                />
-                <img
-                  src="/svgs/controls/5.svg"
-                  alt="Logo"
-                  className="w-4 h-4"
-                />
-              </div>
-            </div>
-
-            {/* 4 */}
-            <div>
-              <span className="text-sm font-bold">06/10/2023</span>
-            </div>
-          </div>
-        </header>
-      </div>
-    </div>
-  );
-};
-
-type MenuOptionProps = {
-  title: string;
-  sub: string;
-};
-const MenuOption = ({ sub, title }: MenuOptionProps) => {
-  return (
-    <div className="flex flex-col items-center justify-center">
-      <span className="text-xl font-bold">{title}</span>
-      <span className="text-xl font-bold">{sub}</span>
-    </div>
-  );
-};
-
-const SideBar = () => {
-  const names = [
-    "Deport & burn",
-    "Coast to Trunk...",
-    "Claw Separati...",
-    "Trunk Separa...",
-    "Trunk Separa...",
-  ];
-
-  return (
-    <div className="flex flex-col px-5 w-32 h-full h-sc border-r pt-10">
-      <div className="flex flex-col items-center justify-center space-y-12">
-        {names.map((name) => (
-          <div key={name} className="flex flex-col items-center justify-center">
-            <Image src="/svgs/union.svg" alt="Icon" width={24} height={24} />
-
-            <span className="text-sm font-bold text-center">{name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const InfoPainel = () => {
-  return (
-    <div className="flex-1 w-full border-r pl-8 pr-16">
-      <div className="p-5 flex w-full items-center justify-between mb-5">
-        <div className="flex space-x-3 ">
-          <span className="rounded bg-[#111B52] border p-3 text-white">
-            <AiOutlineArrowLeft className="text-xl" />
-          </span>
-          <span className="rounded bg-[#111B52] border p-3 text-white ">
-            <AiOutlineArrowRight className="text-xl" />
-          </span>
-        </div>
-
-        <h3 className="text-2xl font-bold">Planeta Terra</h3>
-
-        <div className="flex flex-col">
-          <span className="text-sm font-bold text-center flex items-center">
-            {" "}
-            running
-            <BsArrowCounterclockwise className="ml-2 text-lg" />
-          </span>
-
-          <span className="text-sm font-bold text-left">00:22:00</span>
-        </div>
-      </div>
-
-      <div className="space-y-7 pl-3">
-        <div className="bg-[#111B52] p-5  rounded w-full">
-          <h3 className="text-xl font-bold flex items-center pb-2 mb-3 border-b">
-            <AiFillExclamationCircle className="text-xl mr-2 text-yellow-300" />
-            Crew Interrupt Conditions
-          </h3>
-
-          <div className="space-y-3">
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                30° sustained altitude error
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                Crew Interrupt Conditions
-              </span>
-            </div>
-
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                600°/m altitude rate
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                FAR FIELD POINTING
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ----------------*/}
-
-        <div className="bg-[#111B52] p-5  rounded w-full">
-          <h3 className="text-xl font-bold flex items-center pb-2 mb-3 border-b">
-            <AiFillExclamationCircle className="text-xl mr-2 text-yellow-300" />
-            Crew Deorbit Preparation
-          </h3>
-
-          <div className="space-y-3">
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                Deorbit burn - 3 hrs
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                On SpaceX, On, begin procedure 4.700
-              </span>
-            </div>
-
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                NLT Deorbit Burn - 1 hr
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                Deorbit Burn Brief
-              </span>
-            </div>
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                NLT Deorbit Burn - 30 min
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                Review Reference Content
-              </span>
-            </div>
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                Deorbit, entry and landing Go/No-Go
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">Acknowledge</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ----------------*/}
-        <div className="bg-[#111B52] p-5  rounded w-full">
-          <h3 className="text-xl font-bold flex items-center pb-2 mb-3 border-b">
-            <AiFillExclamationCircle className="text-xl mr-2 text-yellow-300" />
-            Crew Interrupt Conditions
-          </h3>
-
-          <div className="space-y-3">
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                30° sustained altitude error
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                Crew Interrupt Conditions
-              </span>
-            </div>
-
-            <div className="flex items-center">
-              <span className="whitespace-nowrap font-bold ">
-                600°/m altitude rate
-              </span>
-
-              <div className="flex-grow border-b border-dotted border-gray-400 relative top-1"></div>
-
-              <span className="font-bold whitespace-nowrap">
-                FAR FIELD POINTING
-              </span>
-            </div>
-          </div>
-        </div>
+        <Footer />
       </div>
     </div>
   );
@@ -416,39 +106,6 @@ const InfoCard = ({ title, keyValue, value }: InfoCardProps) => {
 
         <span className="font-bold whitespace-nowrap">{value}</span>
       </div>
-    </div>
-  );
-};
-
-const PlanetPainel = () => {
-  return (
-    <div className="w-full">
-      <Canvas
-        camera={{
-          position: [0, 0, 26],
-        }}
-      >
-        <OrbitControls
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          minAzimuthAngle={-Math.PI / 2}
-          maxAzimuthAngle={Math.PI / 2}
-          minDistance={25}
-          maxDistance={700}
-          zoomSpeed={2}
-          panSpeed={0.5} // significa a velocidade de movimento da câmera
-          rotateSpeed={0.4} // velocidade de rotação
-          enablePan={true}
-          enableZoom={true}
-          enableRotate={true}
-        />
-        {/* <pointLight color="#f6f3e a" position={[-5, 5, 20]} intensity={100} />
-        <pointLight color="#f6f3ea" position={[-5, 0, 20]} intensity={100} />
-        <pointLight color="#f6f3ea" position={[-5, -5, 20]} intensity={100} />
-        <pointLight color="#f6f3ea" position={[-5, -10, 20]} intensity={100} /> */}
-        <ambientLight intensity={2} />
-        <SimpleEarth position={[0, 0, 0]} />
-      </Canvas>
     </div>
   );
 };
