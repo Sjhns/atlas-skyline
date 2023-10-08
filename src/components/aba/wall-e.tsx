@@ -111,10 +111,7 @@ export const WallE = () => {
           </div>
         </div>
 
-        {/* -------------------------- */}
       </div>
-
-      {/* -------------------------- */}
 
       <div className="absolute flex flex-col left-0 top-0 p-7 space-y-9">
         <div className="flex items-center space-x-3">
@@ -209,8 +206,6 @@ export const WallE = () => {
         </div>
       </div>
 
-      {/* -------------------------- */}
-
       <>
         <Canvas
           shadows
@@ -219,19 +214,8 @@ export const WallE = () => {
             position: [0, 7, 12],
           }}
         >
-          {/* <CameraShake
-              maxYaw={0.1} // Max amount camera can yaw in either direction
-              maxPitch={0.1} // Max amount camera can pitch in either direction
-              maxRoll={0.1} // Max amount camera can roll in either direction
-              yawFrequency={0.1} // Frequency of the the yaw rotation
-              pitchFrequency={0.1} // Frequency of the pitch rotation
-              rollFrequency={0.1} // Frequency of the roll rotation
-              intensity={1} // initial intensity of the shake
-              decayRate={0.65} // if decay = true this is the rate at which intensity will reduce at />
-            /> */}
           <Robot />
-          {/* <Stage>
-            </Stage> */}
+
           <ambientLight intensity={2} />
           <OrbitControls />
         </Canvas>

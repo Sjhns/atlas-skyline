@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
 
 export const ChoosePlan = () => {
@@ -6,7 +7,7 @@ export const ChoosePlan = () => {
     initial: {},
     animate: {
       transition: {
-        staggerChildren: 0.2, // Adicione um pequeno atraso entre cada elemento
+        staggerChildren: 0.2,
       },
     },
     exit: {},
@@ -57,14 +58,19 @@ export const ChoosePlan = () => {
 
           <div className="flex items-center space-x-4">
             <span className="text-xs font-bold uppercase">Master</span>
-            <AiFillStar color="#FFD700" />
-            <AiFillStar color="#FFD700" />
-            <AiFillStar color="#FFD700" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
           </div>
 
           <div className="flex items-center">
             <span>
-              <img src="/svgs/danger.svg" alt="Danger" />
+              <Image
+                src="/svgs/danger.svg"
+                alt="Danger"
+                width={36}
+                height={36}
+              />
             </span>
           </div>
         </motion.div>
@@ -83,17 +89,17 @@ export const ChoosePlan = () => {
 
           <div className="flex items-center space-x-4">
             <span className="text-xs font-bold uppercase">Chief</span>
-            <AiFillStar color="#FFD700" />
-            <AiFillStar color="#FFD700" />
-            <AiFillStar color="#FFD700" />
-            <AiFillStar color="#FFD700" />
-            <AiFillStar color="#FFD700" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
           </div>
 
           <div className="flex items-center space-x-3">
-            <img src="/svgs/danger.svg" alt="Danger" />
-            <img src="/svgs/danger.svg" alt="Danger" />
-            <img src="/svgs/danger.svg" alt="Danger" />
+            <Image src="/svgs/danger.svg" alt="Danger" width={36} height={36} />
+            <Image src="/svgs/danger.svg" alt="Danger" width={36} height={36} />
+            <Image src="/svgs/danger.svg" alt="Danger" width={36} height={36} />
           </div>
         </motion.div>
         <motion.div
@@ -111,12 +117,12 @@ export const ChoosePlan = () => {
 
           <div className="flex items-center space-x-4">
             <span className="text-xs font-bold uppercase">Basic</span>
-            <AiFillStar color="#FFD700" />
+            <AiFillStar color="#FFD700" className="text-2xl" />
           </div>
 
           <div className="flex items-center space-x-4">
-            <img src="/svgs/danger.svg" alt="Danger" />
-            <img src="/svgs/danger.svg" alt="Danger" />
+            <Image src="/svgs/danger.svg" alt="Danger" width={36} height={36} />
+            <Image src="/svgs/danger.svg" alt="Danger" width={36} height={36} />
           </div>
         </motion.div>
       </div>

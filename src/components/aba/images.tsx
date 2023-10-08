@@ -280,12 +280,14 @@ export const AbaImages = () => {
             alt="image 2"
             className="h-full w-full object-cover object-center"
             width={100000}
+            height={100000}
           />
 
           <Image
             src="/images/mars/2.jpg"
             alt="image 3"
             className="h-full w-full object-cover object-center"
+            width={100000}
             height={100000}
           />
         </Carousel>

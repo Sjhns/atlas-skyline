@@ -67,7 +67,13 @@ export const Footer = () => {
       <div className="flex items-center space-x-8">
         {/* 1  */}
         <div className="flex items-center space-x-2">
-          <Image src="/svgs/controls/1.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/controls/1.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            height={40}
+            width={40}
+          />
           <span className="text-sm font-bold text-[#20FBFD]">SPX</span>
         </div>
 
@@ -86,8 +92,8 @@ export const Footer = () => {
               alt="Logo"
               className="w-4 h-4"
               width={40}
+              height={40}
             />
-            height={40}
           </div>
 
           <div className="flex flex-col items-center justify-center">
