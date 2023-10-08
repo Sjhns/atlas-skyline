@@ -17,30 +17,19 @@ const raleway = Raleway({
 export default function Home() {
   const [telaAtual, setTelaAtual] = useState(0);
   const [scrolling, setScrolling] = useState(false);
-  const [onDash, setOnDash] = useState(false);
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
+      if (telaAtual === 5) {
+        return;
+      }
+
       if (!scrolling) {
         setScrolling(true);
 
         if (event.deltaY > 0 && telaAtual < 5) {
-          if (onDash) {
-            return;
-          }
-
           setTelaAtual(telaAtual + 1);
-
-          if (telaAtual === 5) {
-            setScrolling(true);
-            setOnDash(true);
-          }
         } else if (event.deltaY < 0 && telaAtual > 0) {
-          if (onDash) {
-            setScrolling(true);
-            return;
-          }
-
           setTelaAtual(telaAtual - 1);
         }
 
