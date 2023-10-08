@@ -31,7 +31,7 @@ export default function Home() {
 
         setTimeout(() => {
           setScrolling(false);
-        }, 1000); // Tempo em milissegundos para habilitar o scroll novamente
+        }, 1400); // Tempo em milissegundos para habilitar o scroll novamente
       }
     };
 
@@ -50,13 +50,13 @@ export default function Home() {
         fontWeight: raleway.style.fontWeight,
       }}
     >
-      <PlanetItinerary />
-      {/* {telaAtual === 0 && <Welcome />}
+      {/* <PlanetItinerary /> */}
+      {telaAtual === 0 && <Welcome />}
       {telaAtual === 1 && <ChoosePlanet />}
       {telaAtual === 2 && <Health />}
       {telaAtual === 3 && <ChoosePlan />}
       {telaAtual === 4 && <Insurances />}
-      {telaAtual === 5 && <PlanetItinerary />} */}
+      {telaAtual === 5 && <PlanetItinerary />}
     </div>
   );
 }
