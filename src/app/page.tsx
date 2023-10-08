@@ -17,6 +17,7 @@ const raleway = Raleway({
 export default function Home() {
   const [telaAtual, setTelaAtual] = useState(0);
   const [scrolling, setScrolling] = useState(false);
+  const [onDash, setOnDash] = useState(false);
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
@@ -24,8 +25,22 @@ export default function Home() {
         setScrolling(true);
 
         if (event.deltaY > 0 && telaAtual < 5) {
+          if (onDash) {
+            return;
+          }
+
           setTelaAtual(telaAtual + 1);
+
+          if (telaAtual === 5) {
+            setScrolling(true);
+            setOnDash(true);
+          }
         } else if (event.deltaY < 0 && telaAtual > 0) {
+          if (onDash) {
+            setScrolling(true);
+            return;
+          }
+
           setTelaAtual(telaAtual - 1);
         }
 
@@ -50,7 +65,7 @@ export default function Home() {
         fontWeight: raleway.style.fontWeight,
       }}
     >
-      {/* <PlanetItinerary /> */}
+      <PlanetItinerary />
       {telaAtual === 0 && <Welcome />}
       {telaAtual === 1 && <ChoosePlanet />}
       {telaAtual === 2 && <Health />}
