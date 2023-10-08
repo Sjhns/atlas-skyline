@@ -34,8 +34,6 @@ export const ChoosePlanet = () => {
         </div>
       </motion.div>
 
-      {/* <div className="w-full"> */}
-
       <Canvas
         camera={{
           position: [0, 0, 50],

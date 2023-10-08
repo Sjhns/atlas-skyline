@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Carousel, IconButton } from "@material-tailwind/react";
-import Image from "next/image";
 
 export const AbaImages = () => {
   const [imageDescription, setImageDescription] = useState(0);
@@ -267,28 +266,22 @@ export const AbaImages = () => {
             </div>
           )}
         >
-          <Image
+          <img
             src="/images/mars/1-focus.jpg"
             alt="image 1"
             className="h-full w-full object-cover object-center"
-            width={100000}
-            height={100000}
           />
 
-          <Image
+          <img
             src="/images/mars/2-focus.jpg"
             alt="image 2"
             className="h-full w-full object-cover object-center"
-            width={100000}
-            height={100000}
           />
 
-          <Image
+          <img
             src="/images/mars/2.jpg"
             alt="image 3"
             className="h-full w-full object-cover object-center"
-            width={100000}
-            height={100000}
           />
         </Carousel>
       </div>
