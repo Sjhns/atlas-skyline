@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CurrentDate, CurrentTime } from "./current-datetime";
 
 export const Footer = () => {
@@ -7,19 +8,49 @@ export const Footer = () => {
     <footer className="w-full flex items-center justify-between px-5 py-3 bg-[#111B52]">
       <div className="flex items-center space-x-5">
         <span>
-          <img src="/svgs/navigation/1.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/navigation/1.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            width={40}
+            height={40}
+          />
         </span>
         <span>
-          <img src="/svgs/navigation/2.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/navigation/2.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            width={40}
+            height={40}
+          />
         </span>
         <span>
-          <img src="/svgs/navigation/3.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/navigation/3.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            width={40}
+            height={40}
+          />
         </span>
         <span>
-          <img src="/svgs/navigation/4.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/navigation/4.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            width={40}
+            height={40}
+          />
         </span>
         <span>
-          <img src="/svgs/navigation/5.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/navigation/5.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            width={40}
+            height={40}
+          />
         </span>
       </div>
 
@@ -36,15 +67,27 @@ export const Footer = () => {
       <div className="flex items-center space-x-8">
         {/* 1  */}
         <div className="flex items-center space-x-2">
-          <img src="/svgs/controls/1.svg" alt="Logo" className="w-10 h-10" />
+          <Image src="/svgs/controls/1.svg" alt="Logo" className="w-10 h-10" />
           <span className="text-sm font-bold text-[#20FBFD]">SPX</span>
         </div>
 
         {/* 2 */}
         <div className="flex items-center space-x-3">
           <div className="flex flex-col items-center justify-center">
-            <img src="/svgs/controls/2.svg" alt="Logo" className="w-4 h-4" />
-            <img src="/svgs/controls/3.svg" alt="Logo" className="w-4 h-4" />
+            <Image
+              src="/svgs/controls/2.svg"
+              alt="Logo"
+              className="w-4 h-4"
+              width={40}
+              height={40}
+            />
+            <Image
+              src="/svgs/controls/3.svg"
+              alt="Logo"
+              className="w-4 h-4"
+              width={40}
+            />
+            height={40}
           </div>
 
           <div className="flex flex-col items-center justify-center">
@@ -67,19 +110,35 @@ export const Footer = () => {
 
         {/* 3 */}
         <div className="flex items-center space-x-2">
-          <img src="/svgs/controls/1.svg" alt="Logo" className="w-10 h-10" />
+          <Image
+            src="/svgs/controls/1.svg"
+            alt="Logo"
+            className="w-10 h-10"
+            width={40}
+            height={40}
+          />
           <span className="font-bold text-gray-500">ISS</span>
           <div className="flex flex-col items-center justify-center">
-            <img src="/svgs/controls/4.svg" alt="Logo" className="w-4 h-4" />
-            <img src="/svgs/controls/5.svg" alt="Logo" className="w-4 h-4" />
+            <Image
+              src="/svgs/controls/4.svg"
+              alt="Logo"
+              className="w-4 h-4"
+              width={40}
+              height={40}
+            />
+            <Image
+              src="/svgs/controls/5.svg"
+              alt="Logo"
+              className="w-4 h-4"
+              width={40}
+              height={40}
+            />
           </div>
         </div>
 
-        {/* 4 */}
         <div className="flex flex-col items-center justify-center">
           <CurrentDate />
           <CurrentTime />
-          {/* <span className="text-sm font-bold">06/10/2023</span> */}
         </div>
       </div>
     </footer>

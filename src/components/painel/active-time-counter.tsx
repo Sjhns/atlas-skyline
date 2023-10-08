@@ -11,7 +11,6 @@ export const ActiveTimeCounter: React.FC<ActiveTimeCounterProps> = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Incrementar o tempo ativo a cada segundo
       setActiveTime((prevActiveTime) => prevActiveTime + 1);
     }, 1000);
 

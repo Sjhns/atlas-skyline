@@ -1,11 +1,11 @@
 "use client";
 
-import { ChoosePlan } from "@/components/parts/choose-plan";
-import { ChoosePlanet } from "@/components/parts/chosse-planet";
-import { Health } from "@/components/parts/health";
-import { Insurances } from "@/components/parts/insurances";
-import { Welcome } from "@/components/parts/welcome";
-import { PlanetItinerary } from "@/components/planet-itinerary";
+import { ChoosePlan } from "@/components/operations/choose-plan";
+import { ChoosePlanet } from "@/components/operations/chosse-planet";
+import { Health } from "@/components/operations/health";
+import { Insurances } from "@/components/operations/insurances";
+import { Welcome } from "@/components/operations/welcome";
+import { Dashboard } from "@/components/dashboard";
 import { Raleway } from "next/font/google";
 import { useEffect, useState } from "react";
 
@@ -54,13 +54,12 @@ export default function Home() {
         fontWeight: raleway.style.fontWeight,
       }}
     >
-      {/* <PlanetItinerary /> */}
       {telaAtual === 0 && <Welcome />}
       {telaAtual === 1 && <ChoosePlanet />}
       {telaAtual === 2 && <Health />}
       {telaAtual === 3 && <ChoosePlan />}
       {telaAtual === 4 && <Insurances />}
-      {telaAtual === 5 && <PlanetItinerary />}
+      {telaAtual === 5 && <Dashboard />}
     </div>
   );
 }

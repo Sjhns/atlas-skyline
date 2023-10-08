@@ -24,7 +24,7 @@ export const CurrentDate: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentDate(formatDate(new Date()));
-    }, 1000); // Atualiza a cada segundo
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);

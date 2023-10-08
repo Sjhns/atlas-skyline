@@ -9,8 +9,12 @@ import {
   Typography,
   TimelineBody,
 } from "@material-tailwind/react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import { AiOutlineClockCircle } from "react-icons/ai";
+
+import {
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+  AiOutlineClockCircle,
+} from "react-icons/ai";
 
 export const MarsActivities = () => {
   const marsActivities = [
@@ -41,8 +45,6 @@ export const MarsActivities = () => {
     },
 
     {
-      // more activities
-
       title: "Missão de caça a fósseis",
       description:
         "Fiz parte de uma missão de caça a fósseis para encontrar evidências de vida antiga em Marte.",
@@ -87,7 +89,7 @@ export const MarsActivities = () => {
 
       <Timeline>
         {marsActivities.map((activity, index) => (
-          <TimelineItem key={index}>
+          <TimelineItem key={activity.title}>
             <TimelineConnector />
             <TimelineHeader className="h-3">
               <TimelineIcon className="bg-white" />
@@ -108,18 +110,5 @@ export const MarsActivities = () => {
         ))}
       </Timeline>
     </div>
-
-    // <div className="flex-1 flex flex-col pt-3 pl-3">
-    //   <h3 className="text-2xl font-bold text-center mb-5">
-    //     Atividades em Marte
-    //   </h3>
-
-    //   {marsActivities.map((activity, index) => (
-    //     <div key={index} className="mb-4">
-    //       <h4 className="text-lg font-bold text-gray-400">{activity.title}</h4>
-    //       <p className="text-sm text-gray-400">{activity.description}</p>
-    //     </div>
-    //   ))}
-    // </div>
   );
 };

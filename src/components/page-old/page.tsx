@@ -5,7 +5,7 @@ import { Jupiter } from "@/components/planets/jupiter";
 import { Mars } from "@/components/planets/mars";
 import { Mercury } from "@/components/planets/mercury";
 import { Neptune } from "@/components/planets/neptune";
-import { PlanetInfoModal } from "@/components/planet-info-modal";
+import { PlanetInfoModal } from "@/components/common/planet-info-modal";
 import { Saturn } from "@/components/planets/saturn";
 import { Sun } from "@/components/planets/sun";
 import { Uranus } from "@/components/planets/uranus";
@@ -17,8 +17,8 @@ import { useState } from "react";
 
 import * as THREE from "three";
 import { PlanetProvider } from "@/context/planet-context";
-import { PlanetItinerary } from "@/components/planet-itinerary";
-import { Welcome } from "@/components/parts/welcome";
+import { PlanetItinerary } from "@/components/dashboard";
+import { Welcome } from "@/components/operations/welcome";
 
 export default function Home() {
   const [about, setAbout] = useState<PlanetsName>();
