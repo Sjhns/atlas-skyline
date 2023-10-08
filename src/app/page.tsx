@@ -65,7 +65,7 @@ export default function Home() {
         fontWeight: raleway.style.fontWeight,
       }}
     >
-      <PlanetItinerary />
+      {/* <PlanetItinerary /> */}
       {telaAtual === 0 && <Welcome />}
       {telaAtual === 1 && <ChoosePlanet />}
       {telaAtual === 2 && <Health />}
