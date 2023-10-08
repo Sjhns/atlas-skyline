@@ -182,37 +182,14 @@ export const InfoPainel = ({ planet }: Props) => {
 export const AbaStatistic = ({ planet }: { planet: string }) => {};
 
 export const AbaImagens = () => {
-  const [fullScreen, setFullScreen] = useState(false);
   const [imageDescription, setImageDescription] = useState(0);
 
-  const handleFullScreen = () => {
-    setFullScreen(!fullScreen);
-  };
-
   const handleImageDescriptionNext = () => {
-    if (imageDescription > 2) {
-      setImageDescription(2);
-      return;
-    }
-
-    if (imageDescription < 0) {
-      setImageDescription(0);
-      return;
-    }
-
-    setImageDescription((old) => old + 1);
+    setImageDescription((old) => Math.min(old + 1, 2));
   };
 
   const handleImageDescriptionPrev = () => {
-    if (imageDescription > 2) {
-      return;
-    }
-
-    if (imageDescription < 0) {
-      return;
-    }
-
-    setImageDescription((old) => old - 1);
+    setImageDescription((old) => Math.max(old - 1, 0));
   };
 
   console.log(imageDescription);
@@ -887,7 +864,7 @@ export const WallE = () => {
           shadows
           camera={{
             fov: 40,
-            position: [0, 7, 12]
+            position: [0, 7, 12],
           }}
         >
           {/* <CameraShake
