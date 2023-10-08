@@ -30,16 +30,36 @@ export const PlanetPainel = () => {
 
         <ambientLight intensity={2} />
 
-        <SimpleMars position={[0, 0, 0]} />
+        <SimpleMars position={[0, 2, 0]} />
       </Canvas>
 
-      <div className="absolute w-full bottom-0 flex items-center justify-end p-8">
-        <button
-          onClick={() => setShowPoints(!showPoints)}
-          className="bg-[#111B52] text-white py-3 px-7 rounded-3xl border font-bold uppercase hover:opacity-90"
-        >
-          Configurações
-        </button>
+      <div className="absolute w-full bottom-0 flex items-end justify-end p-8">
+        <div className="mr-10">
+          <h3 className="font-bold">target latitude</h3>
+
+          <span className="font-bold">26&deg; 30&apos; 0&quot; N</span>
+        </div>
+
+        <div className="mr-16">
+          <h3 className="font-bold">target longitude</h3>
+
+          <span className="font-bold">26&deg; 30&apos; 0&quot; N</span>
+        </div>
+
+        <div className="flex flex-col items-center space-y-3">
+          <div className="flex flex-col items-center justify-center">
+            <span className="text-xs font-bold uppercase">camera</span>
+
+            <span className="text-xs font-bold uppercase">Vg-RT754 Skyline 8000</span>
+          </div>
+
+          <button
+            onClick={() => setShowPoints(!showPoints)}
+            className="bg-[#111B52] text-white py-3 px-7 rounded-3xl border font-bold uppercase hover:opacity-90"
+          >
+            Configurações
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -19,11 +19,11 @@ export const SideBar = ({ setAba }: Props) => {
       id: 2,
     },
     {
-      name: "Navegação",
+      name: "Wall-e",
       id: 3,
     },
     {
-      name: "Sistema",
+      name: "Nave",
       id: 4,
     },
     {

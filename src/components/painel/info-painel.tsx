@@ -1,11 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { AiFillExclamationCircle } from "react-icons/ai";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import {
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+  AiFillCheckCircle,
+} from "react-icons/ai";
 import { BsArrowCounterclockwise } from "react-icons/bs";
 import { System } from "../system";
-import { Carousel } from "@material-tailwind/react";
-import { useState } from "react";
+import { Carousel, TimelineBody } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 
 import {
   Timeline,
@@ -22,6 +27,15 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { AiOutlineFullscreen, AiOutlineFullscreenExit } from "react-icons/ai";
+import { MarsActivities } from "../viagem/mars-actividade";
+import { Canvas } from "@react-three/fiber";
+import {
+  CameraShake,
+  OrbitControls,
+  Stage,
+  useAnimations,
+  useGLTF,
+} from "@react-three/drei";
 
 type Props = {
   planet: string;
@@ -29,8 +43,8 @@ type Props = {
 
 export const InfoPainel = ({ planet }: Props) => {
   return (
-    <div className="flex-1 w-full border-r pl-8 pr-10 overflow-y-auto min-w-min pb-14 mr-10">
-      <div className="p-5 flex w-full items-center justify-between mb-5">
+    <div className="flex-1 w-full border-r pl-5 pr-8 overflow-y-auto min-w-min pb-14 mr-12">
+      <div className="py-5 flex w-full items-center justify-between mb-5">
         <div className="flex space-x-3 ">
           <span className="rounded bg-[#111B52] border p-3 text-white">
             <AiOutlineArrowLeft className="text-xl" />
@@ -218,38 +232,42 @@ export const AbaImagens = () => {
       </div> */}
 
       <div
-        className="absolute top-0 right-0 p-5 cursor-pointer z-50"
+        className="absolute top-0 w-full flex justify-end  right-0 p-5 cursor-pointer z-50"
         onClick={handleFullScreen}
       >
         {fullScreen ? (
-          <AiOutlineFullscreen className="text-4xl text-yellow-300" />
+          <AiOutlineFullscreen className="text-4xl text-gray-700" />
         ) : (
-          <AiOutlineFullscreenExit className="text-4xl text-yellow-300" />
+          <AiOutlineFullscreenExit className="text-4xl text-gray-700" />
         )}
       </div>
       <Carousel transition={{ duration: 2 }}>
         <img
-          src="https://media.cnn.com/api/v1/images/stellar/prod/210330140016-curiosity-selfie.jpg?q=w_2500,h_1406,x_0,y_0,c_fill/w_1376"
+          src="/images/mars/1.jpg"
           alt="image 1"
           className="h-full w-full object-cover"
         />
+
         <img
-          src="https://media.cnn.com/api/v1/images/stellar/prod/210211180510-02-mars-unf.jpg?q=w_1782,h_1005,x_0,y_0,c_fill/w_1376"
+          src="/images/mars/2.jpg"
           alt="image 2"
           className="h-full w-full object-cover"
         />
+
         <img
-          src="https://media.cnn.com/api/v1/images/stellar/prod/210203131356-01-best-moments-on-mars-0203.jpg?q=w_2880,h_1800,x_0,y_0,c_fill/w_1376"
+          src="/images/mars/3.jpg"
           alt="image 3"
           className="h-full w-full object-cover"
         />
+
         <img
-          src="https://media.cnn.com/api/v1/images/stellar/prod/181115180614-06-mars-best-moments-mars-msl-gale-crater-mt-sharp-soil-layers-pia19912.jpg?q=w_2500,h_1406,x_0,y_0,c_fill/w_1376"
+          src="/images/mars/4.jpg"
           alt="image 3"
           className="h-full w-full object-cover"
         />
+
         <img
-          src="https://media.cnn.com/api/v1/images/stellar/prod/210211181300-13-mars-unf.jpg?q=w_1600,h_1600,x_0,y_0,c_fill/w_1376"
+          src="/images/mars/5.jpg"
           alt="image 3"
           className="h-full w-full object-cover"
         />
@@ -261,12 +279,32 @@ export const AbaImagens = () => {
 export const AbaViagens = () => {
   return (
     <div className="w-full h-screen flex">
-      <div className="flex-1 flex flex-col border-r pt-3 px-5 overflow-y-scroll">
-        <h3 className="text-2xl font-bold mb-9">
-          Ultimas operações realizadas
-        </h3>
+      <div className="flex-1 flex flex-col border-r  px-4 overflow-y-scroll">
+        <div className="px-2 pt-3 pb-5 flex w-full items-center justify-between mb-5">
+          <div className="flex space-x-3">
+            <span className="rounded bg-[#111B52] border p-3 text-white">
+              <AiOutlineArrowLeft className="text-xl" />
+            </span>
+            <span className="rounded bg-[#111B52] border p-3 text-white ">
+              <AiOutlineArrowRight className="text-xl" />
+            </span>
+          </div>
 
-        <div className="w-full px-16">
+          <h3 className="text-2xl font-bold text-center max-w-xs">
+            Operações financeiras <br /> em Marte
+          </h3>
+
+          <div className="flex flex-col ">
+            <span className="text-sm font-bold text-center flex items-center whitespace-nowrap">
+              {" "}
+              Ultima atualização
+            </span>
+
+            <span className="text-sm font-bold text-right">22:05:45</span>
+          </div>
+        </div>
+
+        <div className="w-full px-2">
           <Timeline>
             <TimelineItem className="h-28">
               <TimelineConnector className="!w-[78px]" />
@@ -335,7 +373,7 @@ export const AbaViagens = () => {
               <TimelineConnector className="!w-[78px]" />
               <TimelineHeader className="relative rounded-xl border border-blue-gray-50 bg-[#111B52] py-3 pl-4 pr-8 shadow-lg shadow-blue-gray-900/5">
                 <TimelineIcon className="p-3" variant="ghost">
-                  <BellIcon className="h-5 w-5 text-white"  />
+                  <BellIcon className="h-5 w-5 text-white" />
                 </TimelineIcon>
                 <div className="flex flex-col gap-1">
                   <Typography variant="h6" color="white">
@@ -396,39 +434,434 @@ export const AbaViagens = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col pt-3 pl-3">
-        <h3 className="text-2xl font-bold text-center mb-5">Atividades</h3>
-
-        <div>
-          <h4 className="text-lg font-bold text-gray-400">
-            Poipu Beach Park is a beach on the south side of the island of Kauai
-          </h4>
-
-          <p className="text-sm text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
-            impedit, porro natus magnam similique architecto omnis fugiat iusto
-            iste ipsum? Nobis impedit atque iure dignissimos quos cum incidunt
-            voluptatem eos.
-          </p>
-        </div>
-      </div>
+      <MarsActivities />
     </div>
   );
 };
 
-export const AbaNavegacao = () => {
-  return <h1>AbaNavegacao</h1>;
+// useGLTF.preload("/3d/robot-draco.glb");
+function Model(props: any) {
+  const { scene, animations } = useGLTF("/3d/robot-draco.glb");
+  const { actions } = useAnimations(animations, scene);
+
+  useEffect(() => {
+    if (!actions.Idle) return;
+
+    actions.Idle.play();
+    scene.traverse(
+      (obj) => obj.isMesh && (obj.receiveShadow = obj.castShadow = true)
+    );
+  }, [actions, scene]);
+
+  return <primitive object={scene} {...props} />;
+}
+
+export const WallE = () => {
+  return (
+    <div className="w-full h-screen relative">
+      <div className="absolute flex flex-col right-0 top-0 p-7 space-y-5">
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Processamento
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[100%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">100%</span>
+          </div>
+        </div>
+
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Armazenamento
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[30%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">30%</span>
+          </div>
+        </div>
+
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Poder de fogo
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[70%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">1500%</span>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Capacidade analítica
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[80%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">80%</span>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Capacidade de manobra
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[70%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              9000 km/h
+            </span>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Aceleração máxima
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[70%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              20 m/s²
+            </span>
+          </div>
+        </div>
+
+        {/* -------------------------- */}
+      </div>
+
+      {/* -------------------------- */}
+
+      <div className="absolute flex flex-col left-0 top-0 p-7 space-y-9">
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              All Systems check
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Rendezvous burn
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              prepare rendezvous burn
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-green-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Thermal shield
+            </span>
+            <span className="text-sm font-bold text-gray-300 block">
+              Applied
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Burn go/no-go
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-orange-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Power completion
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Awaiting
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Station deck check
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* -------------------------- */}
+
+      <Canvas shadows camera={{ fov: 30, position: [0, 0, 0] }}>
+        <CameraShake
+          maxYaw={0.1} // Max amount camera can yaw in either direction
+          maxPitch={0.1} // Max amount camera can pitch in either direction
+          maxRoll={0.1} // Max amount camera can roll in either direction
+          yawFrequency={0.1} // Frequency of the the yaw rotation
+          pitchFrequency={0.1} // Frequency of the pitch rotation
+          rollFrequency={0.1} // Frequency of the roll rotation
+          intensity={1} // initial intensity of the shake
+          decayRate={0.65} // if decay = true this is the rate at which intensity will reduce at />
+        />
+        <Stage>
+          <Model />
+        </Stage>
+        <ambientLight intensity={1} />
+        <OrbitControls makeDefault />
+      </Canvas>
+    </div>
+  );
 };
 
-export const AbaSistema = () => {
+export const AbaNave = () => {
   return (
-    <div className="w-full h-screen">
-      <div>
-        <div>
-          <span>Inertial Velocity</span>
+    <div className="w-full h-screen relative">
+      <div className="absolute flex flex-col right-0 top-0 p-7 space-y-5">
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Inertial Velocity
+          </span>
 
-          <div className="bg-[#5f5f61] rounded w-[540px] h-1 p-1">
-            <div className="bg-blue-900 w-full h-full"></div>
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[80%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              1000km/h
+            </span>
+          </div>
+        </div>
+
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Altitude
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[30%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              390.0 km/h
+            </span>
+          </div>
+        </div>
+
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Apogee
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[50%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              404.4 km/h
+            </span>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Perigee
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[80%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              389.4 km/h
+            </span>
+          </div>
+        </div>
+
+        {/* -------------------------- */}
+
+        <div className="!mt-28">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Inclination
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[70%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              51.67°
+            </span>
+          </div>
+        </div>
+
+        <div className="">
+          <span className="text-sm font-bold text-gray-200 mb-2 block">
+            Range to ISS
+          </span>
+
+          <div className="flex items-center space-x-3">
+            <div className="bg-[#5f5f61] rounded-full w-[240px] h-2 ">
+              <div className="bg-blue-900 w-[95%] h-full rounded-full"></div>
+            </div>
+
+            <span className="text-sm font-bold text-gray-200 block">
+              0.02 km/h
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ------------------------ */}
+      <div className="absolute flex flex-col left-0 top-0 p-7 space-y-9">
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              All Systems check
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Rendezvous burn
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              prepare rendezvous burn
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-green-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Thermal shield
+            </span>
+            <span className="text-sm font-bold text-gray-300 block">
+              Applied
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Burn go/no-go
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-orange-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Power completion
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Awaiting
+            </span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-3">
+          <AiFillCheckCircle className="text-2xl text-gray-500 relative bottom-1" />
+
+          <div>
+            <span className="uppercase font-bold text-gray-400">
+              Station deck check
+            </span>
+            <span className="text-sm font-bold text-gray-500 block">
+              Normal
+            </span>
           </div>
         </div>
       </div>

@@ -15,8 +15,8 @@ import { MenuOption } from "./painel/menu-option";
 import { SideBar } from "./painel/sidebar";
 import {
   AbaImagens,
-  AbaNavegacao,
-  AbaSistema,
+  WallE,
+  AbaNave,
   AbaViagens,
   InfoPainel,
 } from "./painel/info-painel";
@@ -42,7 +42,7 @@ export const PlanetItinerary = () => {
   //   return null;
   // }
 
-  const [aba, setAba] = useState(4);
+  const [aba, setAba] = useState(1);
 
   return (
     <div
@@ -93,8 +93,8 @@ export const PlanetItinerary = () => {
 
           {aba === 1 && <AbaImagens />}
           {aba === 2 && <AbaViagens />}
-          {aba === 3 && <AbaNavegacao />}
-          {aba === 4 && <AbaSistema />}
+          {aba === 3 && <WallE />}
+          {aba === 4 && <AbaNave />}
         </main>
 
         <Footer />

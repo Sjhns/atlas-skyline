@@ -17,10 +17,9 @@ import { Vector3 } from "three";
 
 export const System = () => {
   const spaceman = useRef(!null);
-  const ship = useRef();
 
   return (
-    <Canvas shadows camera={{ position: [0, 1.5, 3] }}>
+    <Canvas shadows camera={{ position: [0, 1.5, 3], zoom: 1.7   }}>
       <ambientLight intensity={2} />
       <directionalLight position={[-10, 0, -5]} intensity={1} color="red" />
       <directionalLight
@@ -45,22 +44,22 @@ export const System = () => {
           lineWidth={2}
         >
           <Ship />
+          <Spaceman>
+            <object3D position={[-0.6, 2, 0]} ref={spaceman as any} />
+          </Spaceman>
         </PivotControls>
       </Float>
 
-      <Float
+      {/* <Float
         position={[1, 1.1, -0.5]}
         rotation={[Math.PI / 3.5, 0, 0]}
         rotationIntensity={4}
         floatIntensity={6}
         speed={1.5}
-      >
-        <Spaceman>
-          <object3D position={[-0.6, 2, 0]} ref={spaceman as any} />
-        </Spaceman>
-      </Float>
+        >
+      </Float> */}
 
-      <Cable start={ship} end={spaceman} />
+      {/* <Cable start={ship} end={spaceman} /> */}
 
       {/* <mesh>
         <Backdrop
