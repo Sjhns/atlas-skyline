@@ -42,7 +42,7 @@ export const PlanetItinerary = () => {
   //   return null;
   // }
 
-  const [aba, setAba] = useState(1);
+  const [aba, setAba] = useState(0);
 
   return (
     <div
