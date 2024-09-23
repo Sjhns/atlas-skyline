@@ -10,4 +10,4 @@ https://github.com/Sjhns/atlas-skyline/assets/108435026/817a8c81-425a-4f0b-8d47-
 
 ## Sobre o projeto
 
-Em breve...
+Um software desenvolvido para Hackathon da Nasa Space Challenge - 2023. 
